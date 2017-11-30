@@ -1,0 +1,50 @@
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Assembly-CSharp.pdb
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/kaspersvendsen/MMI/Breakout/obj/Debug/Assembly-CSharp.dll
+/Users/kaspersvendsen/MMI/Breakout/obj/Debug/Assembly-CSharp.pdb
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEditor.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.TestRunner.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/nunit.framework.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.Timeline.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Mono.Cecil.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Unity.DataContract.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/ExCSS.Unity.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Unity.Legacy.NRefactory.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/kaspersvendsen/MMI/Breakout/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/obj/Debug/Assembly-CSharp.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEditor.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.TestRunner.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/nunit.framework.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.Timeline.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.UIAutomation.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.GoogleAudioSpatializer.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.SpatialTracking.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/UnityEngine.Purchasing.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.Cecil.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/ExCSS.Unity.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.DataContract.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.Legacy.NRefactory.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.Cecil.Pdb.dll
+/Users/linojravindran/Documents/Multimodal Interaction/Projekt/Breakout/Temp/bin/Debug/Unity.Cecil.Mdb.dll

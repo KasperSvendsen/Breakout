@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{1B91EFDE-9B25-2316-2D71-6E972A83EF85}|Enhedstest" StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameEngine.cs">
+    <Files>
+      <File FileName="Assets/Scripts/BallController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Bricks.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/OutputStrategy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Inputstrategy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameEngine.cs" Line="145" Column="48" />
+      <File FileName="Assets/Scripts/Strategy Factory.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
