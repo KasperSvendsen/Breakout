@@ -57,14 +57,18 @@ public class BallController : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.gameObject.name == "BrickPrefab(Clone)" || col.gameObject.name == "blue_brick(Clone)"
+        //Route to root of game folder
+        string path = System.IO.Path.GetDirectoryName(Application.dataPath) + "/points.txt";        
+
+        if (col.gameObject.name == "BrickPrefab(Clone)" || col.gameObject.name == "blue_brick(Clone)"
 			|| col.gameObject.name == "red_brick(Clone)" || col.gameObject.name == "yellow_brick(Clone)")
 		{
 			points++;
 			DestroyBrick(col.gameObject);
+            //Save points to points file
 			if(bricks == 0){
 				int time2 = GameObject.Find ("Player01").GetComponent<GameEngine> ().time;
-				System.IO.File.WriteAllText("/Users/linojravindran/Desktop/points-"+
+				System.IO.File.WriteAllText(path +
 					System.DateTime.Now.ToString("dd-MM-yy_hh-mm-ss")+".txt", "Seconds: " + time2 +": Points: "+
 					points.ToString()+": Dead: "+dead);
 			}
