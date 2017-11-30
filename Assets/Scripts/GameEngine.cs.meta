@@ -1,10 +1,18 @@
 fileFormatVersion: 2
 guid: d60a1c04725214a0391b26fd0dd4724f
-timeCreated: 1506607989
+timeCreated: 1512057935
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - green_brick: {fileID: 4325830077114596, guid: 26e37e847cd184116b6bb59b213173a1,
+      type: 2}
+  - blue_brick: {fileID: 4412913491409388, guid: 292d465d2c68940c98068bbfd1dc2d07,
+      type: 2}
+  - red_brick: {fileID: 4120912809676754, guid: 5eee0c0b17f0d49beb265cc2475893d3,
+      type: 2}
+  - yellow_brick: {fileID: 4282359007839020, guid: 57f89fd0be19d4e7dad7a4b2a8ef3c5a,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
