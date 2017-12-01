@@ -47,6 +47,13 @@ public class BallController : MonoBehaviour
 		vel = Vector2.zero;
 		rb2d.velocity = vel;
 		transform.position = Vector2.zero;
+		if(this.name == "Ball01"){
+			transform.position = new Vector3(2,0,0);
+		}
+		if(this.name == "Ball02")
+		{
+			transform.position = new Vector3(-2,0,0);
+		}
 	}
 
 	void RestartGame()
@@ -60,7 +67,7 @@ public class BallController : MonoBehaviour
         //Route to root of game folder
         string path = System.IO.Path.GetDirectoryName(Application.dataPath) + "/points.txt";        
 
-        if (col.gameObject.name == "BrickPrefab(Clone)" || col.gameObject.name == "blue_brick(Clone)"
+        if (col.gameObject.name == "green_brick(Clone)" || col.gameObject.name == "blue_brick(Clone)"
 			|| col.gameObject.name == "red_brick(Clone)" || col.gameObject.name == "yellow_brick(Clone)")
 		{
 			points++;
@@ -79,6 +86,18 @@ public class BallController : MonoBehaviour
 			RestartGame ();
 		}
 		else if (col.gameObject.name == "Player01") {
+			// Calculate hit Factor
+			float x = hitFactor(transform.position,
+				col.transform.position,
+				col.collider.bounds.size.x);
+
+			// Calculate direction, set length to 1
+			Vector2 dir = new Vector2(x, 1).normalized;
+
+			// Set Velocity with dir * speed
+			rb2d.velocity = dir*speed;
+		}
+		else if (col.gameObject.name == "Player02") {
 			// Calculate hit Factor
 			float x = hitFactor(transform.position,
 				col.transform.position,
