@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO.Ports;
 
 public class GameEngine : MonoBehaviour
 {
-
-	public KeyCode moveLeft = KeyCode.LeftArrow;
+    public KeyCode moveLeft = KeyCode.LeftArrow;
 	public KeyCode moveRight = KeyCode.RightArrow;
 	public KeyCode L1 = KeyCode.Joystick1Button4;
 	public KeyCode L2 = KeyCode.Joystick1Button6;
@@ -88,6 +88,7 @@ public class GameEngine : MonoBehaviour
 		}
 
 		else if (inputDevice == InputDevice.Keyboard) {
+           
 			if (Input.GetKey (moveRight)) {
 				vel.x = speed;
 			} else if (Input.GetKey (moveLeft)) {
@@ -153,5 +154,7 @@ public class GameEngine : MonoBehaviour
 			Debug.Log ("I got the right side!, audio");
 		}
 	}
+
+   
 
 }
