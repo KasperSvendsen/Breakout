@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PlaySound : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public AudioClip rightSound;
+	public AudioClip leftSound;
+
+	private AudioSource source;
+	private float lowPitchRange = .75F;
+	private float highPitchRange = 1.5F;
+	private float velToVol = .2F;
+	private float velocityClipSplit = 10F;
+
+	void Awake () {
+		source = GetComponent<AudioSource>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void OnCollisionEnter (Collision coll) {
 		
 	}
 }

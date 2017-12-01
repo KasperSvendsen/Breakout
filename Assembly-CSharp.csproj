@@ -54,7 +54,6 @@
      <Compile Include="Assets\Scripts\Inputstrategy.cs" />
      <Compile Include="Assets\Scripts\OutputStrategy.cs" />
      <Compile Include="Assets\Scripts\PlaySound.cs" />
-     <Compile Include="Assets\Scripts\ScreenScript.cs" />
      <Compile Include="Assets\Scripts\Strategy Factory.cs" />
      <Compile Include="Assets\Scripts\TwoViews.cs" />
      <Compile Include="Assets\SplitScreenAudio\Code\VirtualAudioListener.cs" />
