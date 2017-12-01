@@ -31,6 +31,8 @@ public class GameEngine : MonoBehaviour
 	public int height;
 	public int points;
 	public int time; 
+	public static string selectedOutput;
+	public static string selectedInput;
 
 	void Start()
 	{
@@ -47,12 +49,15 @@ public class GameEngine : MonoBehaviour
 			break;
 		case OutputDevice.Vibrators:
 			Debug.Log("Vibrators selected");
+			selectedOutput = "Vibrator";
 			break;
 		case OutputDevice.SoundPitch:
 			Debug.Log("Sound pitch selected");
+			selectedOutput = "Sound pitch";
 			break;
 		case OutputDevice.SoundFrequency:
 			Debug.Log("Sound frequency selected");
+			selectedOutput = "Sound frequency";
 			break;
 		}
 	}
