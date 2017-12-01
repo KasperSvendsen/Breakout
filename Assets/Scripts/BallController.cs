@@ -73,7 +73,7 @@ public class BallController : MonoBehaviour
 			points++;
 			DestroyBrick(col.gameObject);
             //Save points to points file
-			if(bricks == 40){
+			if(bricks == 0){
 				int time2 = GameObject.Find ("Player01").GetComponent<GameEngine> ().time;
 				System.IO.File.WriteAllText(path +
 					System.DateTime.Now.ToString("dd-MM-yy_hh-mm-ss")+".txt", "Seconds: " + time2 +"\nPoints: "+
