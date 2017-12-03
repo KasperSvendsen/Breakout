@@ -232,7 +232,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the left side!, haptic");
                 if (sp.IsOpen)
                 {
-                    sp.Write("5");
+                    sp.Write("3");
                 }
             }
 
@@ -253,7 +253,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the right side!, haptic");
                 if (sp.IsOpen)
                 {
-                    sp.Write("6");
+                    sp.Write("4");
                 }
 
             }

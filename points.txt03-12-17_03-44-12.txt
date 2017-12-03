@@ -1,0 +1,5 @@
+Seconds: 59
+Points: 44
+Dead: 6
+Input device: Keyboard
+Output method: 
