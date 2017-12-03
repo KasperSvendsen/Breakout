@@ -9,11 +9,18 @@ public class GameEngine : MonoBehaviour
     public static SerialPort sp = new SerialPort("COM2", 9600, Parity.None, 8, StopBits.One);
     public KeyCode moveLeft = KeyCode.LeftArrow;
 	public KeyCode moveRight = KeyCode.RightArrow;
-	public KeyCode L1 = KeyCode.Joystick1Button4;
-	public KeyCode L2 = KeyCode.Joystick1Button6;
-	public KeyCode R1 = KeyCode.Joystick1Button5;
-	public KeyCode R2 = KeyCode.Joystick1Button7;
-	public float speed = 10.0f;
+	public KeyCode L1P1 = KeyCode.Joystick1Button4;
+	public KeyCode L2P1 = KeyCode.Joystick1Button6;
+	public KeyCode R1P1 = KeyCode.Joystick1Button5;
+	public KeyCode R2P1 = KeyCode.Joystick1Button7;
+    public KeyCode L1P2 = KeyCode.Joystick2Button4;
+    public KeyCode L2P2 = KeyCode.Joystick2Button6;
+    public KeyCode R1P2 = KeyCode.Joystick2Button5;
+    public KeyCode R2P2 = KeyCode.Joystick2Button7;
+    public static string selectedOutput;
+    public static string selectedInput;
+    public string controllerNumber;
+    public float speed = 10.0f;
 	public float boundX = 5.0f;
 	private Rigidbody2D rb2d;
 	public enum InputDevice { Keyboard, PS4Controller };
@@ -42,22 +49,25 @@ public class GameEngine : MonoBehaviour
 		height =  topWallY * 2;
 		rb2d = GetComponent<Rigidbody2D>();
 		generateBricks (1);
-		switch (outputDevice)
-		{
-		case OutputDevice.None:
-			Debug.Log("No output device selected");
-			break;
-		case OutputDevice.Vibrators:
-			Debug.Log("Vibrators selected");
-			break;
-		case OutputDevice.SoundPitch:
-			Debug.Log("Sound pitch selected");
-			break;
-		case OutputDevice.SoundFrequency:
-			Debug.Log("Sound frequency selected");
-			break;
-		}
-	}
+        switch (outputDevice)
+        {
+            case OutputDevice.None:
+                Debug.Log("No output device selected");
+                break;
+            case OutputDevice.Vibrators:
+                Debug.Log("Vibrators selected");
+                selectedOutput = "Vibrator";
+                break;
+            case OutputDevice.SoundPitch:
+                Debug.Log("Sound pitch selected");
+                selectedOutput = "Sound pitch";
+                break;
+            case OutputDevice.SoundFrequency:
+                Debug.Log("Sound frequency selected");
+                selectedOutput = "Sound frequency";
+                break;
+        }
+    }
 
 
 	// Update is called once per frame
@@ -68,21 +78,31 @@ public class GameEngine : MonoBehaviour
 
 		if(inputDevice == InputDevice.PS4Controller) 
 		{
+            
+            System.Array values = System.Enum.GetValues(typeof(KeyCode));
+            foreach (KeyCode code in values)
+            {
+                if (Input.GetKeyDown(code)) { print(System.Enum.GetName(typeof(KeyCode), code)); }
+            }
+            
+            selectedInput = "PS4Controller";
 			float controllerSpeed = (Input.GetAxis("Horizontal"));
 			vel.x = controllerSpeed*10;
-			if(Input.GetKey(L1)){
+            
+            
+			if(Input.GetKeyDown(L1P1)){
 				Debug.Log("L1 Pressed!");
 				audioOutput ("Left");
 			}
-			else if(Input.GetKey(L2)){
+			else if(Input.GetKeyDown(L2P1)){
 				Debug.Log("L2 Pressed!");
-				audioOutput ("Right");
-			}
-			else if(Input.GetKey(R1)){
-				Debug.Log("R1 Pressed!");
 				hapticOutput ("Left");
 			}
-			else if(Input.GetKey(R2)){
+			else if(Input.GetKeyDown(R1P1)){
+				Debug.Log("R1 Pressed!");
+				audioOutput ("Right");
+			}
+			else if(Input.GetKeyDown(R2P1)){
 				Debug.Log("R2 Pressed!");
 				hapticOutput ("Right");
 			}
@@ -90,7 +110,7 @@ public class GameEngine : MonoBehaviour
 		}
 
 		else if (inputDevice == InputDevice.Keyboard) {
-           
+           selectedInput = "Keyboard";
 			if (Input.GetKey (moveRight)) {
 				vel.x = speed;
 			} else if (Input.GetKey (moveLeft)) {
@@ -143,7 +163,6 @@ public class GameEngine : MonoBehaviour
 	void hapticOutput(string Side){
 		if(Side == "Left"){
 			Debug.Log ("I got the left side!, haptic");
-            Debug.Log("You pressed 1");
             if (sp.IsOpen)
             {
                 sp.Write("1");
@@ -151,8 +170,7 @@ public class GameEngine : MonoBehaviour
 
         }
 		else if(Side == "Right"){
-			Debug.Log ("I got the right side!, haptic");
-            Debug.Log("You pressed 2");
+			Debug.Log ("I got the right side!, haptic");            
             if (sp.IsOpen)
             {
                 sp.Write("2");
@@ -162,7 +180,6 @@ public class GameEngine : MonoBehaviour
 	void audioOutput(string Side){
 		if(Side == "Left"){
 			Debug.Log ("I got the left side!, audio");
-            Debug.Log("You pressed 1");
             if (sp.IsOpen)
             {
                 sp.Write("3");
@@ -170,7 +187,6 @@ public class GameEngine : MonoBehaviour
         }
 		else if(Side == "Right"){
 			Debug.Log ("I got the right side!, audio");
-            Debug.Log("You pressed 1");
             if (sp.IsOpen)
             {
                 sp.Write("4");
@@ -186,8 +202,8 @@ public class GameEngine : MonoBehaviour
         {
             if (sp.IsOpen)
             {
-                sp.Close();
-                Debug.Log("Closing port, because it was already open!");
+                //sp.Close();
+                //Debug.Log("Closing port, because it was already open!");
             }
             else
             {
@@ -200,11 +216,11 @@ public class GameEngine : MonoBehaviour
         {
             if (sp.IsOpen)
             {
-                print("Port is already open");
+                Debug.Log("Port is already open");
             }
             else
             {
-                print("Port == null");
+                Debug.Log("Port == null");
             }
         }
     }

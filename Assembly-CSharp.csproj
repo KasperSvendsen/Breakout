@@ -61,7 +61,6 @@
      <Compile Include="Assets\Scripts\PlaySound.cs" />
      <Compile Include="Assets\Scripts\Strategy Factory.cs" />
      <Compile Include="Assets\Scripts\Test.cs" />
-     <Compile Include="Assets\Scripts\TwoViews.cs" />
      <Compile Include="Assets\SplitScreenAudio\Code\VirtualAudioListener.cs" />
      <Compile Include="Assets\SplitScreenAudio\Code\VirtualAudioSource.cs" />
      <Compile Include="Assets\SplitScreenAudio\Code\VirtualAudioSource_ClosestListenerOnly.cs" />
