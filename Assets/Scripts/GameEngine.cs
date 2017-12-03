@@ -212,9 +212,7 @@ public class GameEngine : MonoBehaviour
 		}
 		startX = (width/2)+ 0.3f;
 		for(int x = 0; x < 11; x++){
-			var ny = Instantiate(yellow_brick, new Vector3(startX, startY, 0), Quaternion.Euler(0,0,0)).gameObject;
-			ny.AddComponent<Bricks>();
-			//Instantiate (yellow_brick, new Vector3(startX,1.5f,0), Quaternion.Euler(0,0,0));
+			Instantiate (yellow_brick, new Vector3(startX,1.5f,0), Quaternion.Euler(0,0,0));
 			startX += 1.14f;
 
 		}
