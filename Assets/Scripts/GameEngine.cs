@@ -7,8 +7,10 @@ using System.IO.Ports;
 public class GameEngine : MonoBehaviour
 {
     public static SerialPort sp = new SerialPort("COM2", 9600, Parity.None, 8, StopBits.One);
-    public KeyCode moveLeft = KeyCode.LeftArrow;
-	public KeyCode moveRight = KeyCode.RightArrow;
+    public KeyCode moveLeft1 = KeyCode.LeftArrow;
+	public KeyCode moveRight1 = KeyCode.RightArrow;
+	public KeyCode moveLeft2 = KeyCode.A;
+	public KeyCode moveRight2 = KeyCode.D;
 	public KeyCode L1P1 = KeyCode.Joystick1Button4;
 	public KeyCode L2P1 = KeyCode.Joystick1Button6;
 	public KeyCode R1P1 = KeyCode.Joystick1Button5;
@@ -23,7 +25,7 @@ public class GameEngine : MonoBehaviour
     public float speed = 10.0f;
 	public float boundX = 5.0f;
 	private Rigidbody2D rb2d;
-	public enum InputDevice { Keyboard, PS4Controller1, PS4Controller2};
+	public enum InputDevice { Keyboard1, Keyboard2, PS4Controller1, PS4Controller2};
 	public enum OutputDevice { None, Vibrators, SoundPitch, SoundFrequency };
 	public InputDevice inputDevice;
 	public OutputDevice outputDevice;
@@ -144,11 +146,21 @@ public class GameEngine : MonoBehaviour
 
         }
 
-        else if (inputDevice == InputDevice.Keyboard) {
+        else if (inputDevice == InputDevice.Keyboard1) {
            selectedInput = "Keyboard";
-			if (Input.GetKey (moveRight)) {
+			if (Input.GetKey (moveRight1)) {
 				vel.x = speed;
-			} else if (Input.GetKey (moveLeft)) {
+			} else if (Input.GetKey (moveLeft1)) {
+				vel.x = -speed;
+			} else if (!Input.anyKey) {
+				vel.x = 0;
+			}
+		}
+		else if (inputDevice == InputDevice.Keyboard2) {
+           selectedInput = "Keyboard";
+			if (Input.GetKey (moveRight2)) {
+				vel.x = speed;
+			} else if (Input.GetKey (moveLeft2)) {
 				vel.x = -speed;
 			} else if (!Input.anyKey) {
 				vel.x = 0;
