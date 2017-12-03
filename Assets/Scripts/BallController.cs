@@ -124,5 +124,6 @@ public class BallController : MonoBehaviour
 	{
 		bricks--;
 		Destroy(g);
+		Debug.Log(bricks);
 	}
 }
