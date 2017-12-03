@@ -26,7 +26,7 @@ public class GameEngine : MonoBehaviour
 	public float boundX = 5.0f;
 	private Rigidbody2D rb2d;
 	public enum InputDevice { Keyboard1, Keyboard2, PS4Controller1, PS4Controller2};
-	public enum OutputDevice { None, Vibrators, SoundPitch, SoundFrequency };
+	public enum OutputDevice { None, Vibrators, Sound, Combination };
 	public InputDevice inputDevice;
 	public OutputDevice outputDevice;
 	public int bricks = 10;
@@ -60,13 +60,13 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("Vibrators selected");
                 selectedOutput = "Vibrator";
                 break;
-            case OutputDevice.SoundPitch:
+            case OutputDevice.Sound:
                 Debug.Log("Sound pitch selected");
-                selectedOutput = "Sound pitch";
+                selectedOutput = "Sound";
                 break;
-            case OutputDevice.SoundFrequency:
+            case OutputDevice.Combination:
                 Debug.Log("Sound frequency selected");
-                selectedOutput = "Sound frequency";
+                selectedOutput = "Combination";
                 break;
         }
     }
