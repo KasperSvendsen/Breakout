@@ -41,6 +41,7 @@ public class GameEngine : MonoBehaviour
 	public int height;
 	public int points;
 	public int time; 
+	public static int outputEffectUsed = 0;
 
 	void Start()
 	{
@@ -94,18 +95,22 @@ public class GameEngine : MonoBehaviour
 			if(Input.GetKeyDown(L1P1)){
 				Debug.Log("L1P1 Pressed!");
 				audioOutput ("Left", controllerNumber);
+				outputEffectUsed++;
 			}
 			else if(Input.GetKeyDown(L2P1)){
 				Debug.Log("L2P1 Pressed!");
 				hapticOutput ("Left", controllerNumber);
+				outputEffectUsed++;
 			}
 			else if(Input.GetKeyDown(R1P1)){
 				Debug.Log("R1P1 Pressed!");
 				audioOutput ("Right", controllerNumber);
+				outputEffectUsed++;
 			}
 			else if(Input.GetKeyDown(R2P1)){
 				Debug.Log("R2P1 Pressed!");
 				hapticOutput ("Right", controllerNumber);
+				outputEffectUsed++;
 			}
 
 		}
@@ -127,21 +132,25 @@ public class GameEngine : MonoBehaviour
             {
                 Debug.Log("L1P2 Pressed!");
                 audioOutput("Left", controllerNumber);
+				outputEffectUsed++;
             }
             else if (Input.GetKeyDown(L2P2))
             {
                 Debug.Log("L2P2 Pressed!");
                 hapticOutput("Left", controllerNumber);
+				outputEffectUsed++;
             }
             else if (Input.GetKeyDown(R1P2))
             {
                 Debug.Log("R1P2 Pressed!");
                 audioOutput("Right", controllerNumber);
+				outputEffectUsed++;
             }
             else if (Input.GetKeyDown(R2P2))
             {
                 Debug.Log("R2P2 Pressed!");
                 hapticOutput("Right", controllerNumber);
+				outputEffectUsed++;
             }
 
         }
@@ -223,7 +232,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the left side!, haptic");
                 if (sp.IsOpen)
                 {
-                    sp.Write("5");
+                    sp.Write("3");
                 }
             }
 
@@ -244,7 +253,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the right side!, haptic");
                 if (sp.IsOpen)
                 {
-                    sp.Write("6");
+                    sp.Write("4");
                 }
 
             }

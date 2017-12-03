@@ -74,6 +74,6 @@ void loop()
       digitalWrite(motorPin2Right, second);
       delay(300);
       digitalWrite(motorPin2Right, 0);
-      break;  
+      break;     
   }
 }
