@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bricks : MonoBehaviour
 {
-
+	public static int bricks = 44;
 	// Use this for initialization
 	void Start()
 	{
@@ -19,6 +19,9 @@ public class Bricks : MonoBehaviour
 	}
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		
+		bricks--;
+		BallController.points++;
+		Debug.Log(bricks);
+		Destroy(this);	
 	}
 }
