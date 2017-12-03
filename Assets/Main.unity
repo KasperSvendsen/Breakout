@@ -448,15 +448,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60a1c04725214a0391b26fd0dd4724f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveLeft: 276
-  moveRight: 275
-  L1: 354
-  L2: 356
-  R1: 355
-  R2: 357
+  moveLeft1: 276
+  moveRight1: 275
+  moveLeft2: 97
+  moveRight2: 100
+  L1P1: 354
+  L2P1: 356
+  R1P1: 355
+  R2P1: 357
+  L1P2: 374
+  L2P2: 376
+  R1P2: 375
+  R2P2: 377
   speed: 10
   boundX: 5.5
-  inputDevice: 1
+  inputDevice: 2
   outputDevice: 0
   bricks: 0
   spacing: 1
@@ -604,15 +610,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60a1c04725214a0391b26fd0dd4724f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveLeft: 276
-  moveRight: 275
-  L1: 354
-  L2: 356
-  R1: 355
-  R2: 357
+  moveLeft1: 276
+  moveRight1: 275
+  moveLeft2: 97
+  moveRight2: 100
+  L1P1: 354
+  L2P1: 356
+  R1P1: 355
+  R2P1: 357
+  L1P2: 374
+  L2P2: 376
+  R1P2: 375
+  R2P2: 377
   speed: 10
   boundX: 5.5
-  inputDevice: 0
+  inputDevice: 3
   outputDevice: 0
   bricks: 0
   spacing: 1
