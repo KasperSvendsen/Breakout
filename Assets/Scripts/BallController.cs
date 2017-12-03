@@ -72,7 +72,9 @@ public class BallController : MonoBehaviour
 			|| col.gameObject.name == "red_brick(Clone)" || col.gameObject.name == "yellow_brick(Clone)")
 		{
 			points++;
-			DestroyBrick(col.gameObject);
+			if(this.name == "Ball01"){
+				DestroyBrick(col.gameObject);
+			}
             //Save points to points file
 			if(bricks == 0){
 				int time2 = GameObject.Find ("Player01").GetComponent<GameEngine> ().time;
@@ -124,6 +126,5 @@ public class BallController : MonoBehaviour
 	{
 		bricks--;
 		Destroy(g);
-		Debug.Log(bricks);
 	}
 }
