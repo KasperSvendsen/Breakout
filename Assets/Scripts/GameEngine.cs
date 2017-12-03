@@ -17,13 +17,13 @@ public class GameEngine : MonoBehaviour
     public KeyCode L2P2 = KeyCode.Joystick2Button6;
     public KeyCode R1P2 = KeyCode.Joystick2Button5;
     public KeyCode R2P2 = KeyCode.Joystick2Button7;
+    private int controllerNumber;
     public static string selectedOutput;
     public static string selectedInput;
-    public string controllerNumber;
     public float speed = 10.0f;
 	public float boundX = 5.0f;
 	private Rigidbody2D rb2d;
-	public enum InputDevice { Keyboard, PS4Controller };
+	public enum InputDevice { Keyboard, PS4Controller1, PS4Controller2};
 	public enum OutputDevice { None, Vibrators, SoundPitch, SoundFrequency };
 	public InputDevice inputDevice;
 	public OutputDevice outputDevice;
@@ -76,9 +76,9 @@ public class GameEngine : MonoBehaviour
 		time = (int)Time.realtimeSinceStartup;
 		var vel = rb2d.velocity;
 
-		if(inputDevice == InputDevice.PS4Controller) 
+		if(inputDevice == InputDevice.PS4Controller1) 
 		{
-            
+            controllerNumber = 1;           
             System.Array values = System.Enum.GetValues(typeof(KeyCode));
             foreach (KeyCode code in values)
             {
@@ -87,29 +87,64 @@ public class GameEngine : MonoBehaviour
             
             selectedInput = "PS4Controller";
 			float controllerSpeed = (Input.GetAxis("Horizontal"));
-			vel.x = controllerSpeed*10;
-            
+			vel.x = controllerSpeed*10;            
             
 			if(Input.GetKeyDown(L1P1)){
-				Debug.Log("L1 Pressed!");
-				audioOutput ("Left");
+				Debug.Log("L1P1 Pressed!");
+				audioOutput ("Left", controllerNumber);
 			}
 			else if(Input.GetKeyDown(L2P1)){
-				Debug.Log("L2 Pressed!");
-				hapticOutput ("Left");
+				Debug.Log("L2P1 Pressed!");
+				hapticOutput ("Left", controllerNumber);
 			}
 			else if(Input.GetKeyDown(R1P1)){
-				Debug.Log("R1 Pressed!");
-				audioOutput ("Right");
+				Debug.Log("R1P1 Pressed!");
+				audioOutput ("Right", controllerNumber);
 			}
 			else if(Input.GetKeyDown(R2P1)){
-				Debug.Log("R2 Pressed!");
-				hapticOutput ("Right");
+				Debug.Log("R2P1 Pressed!");
+				hapticOutput ("Right", controllerNumber);
 			}
 
 		}
 
-		else if (inputDevice == InputDevice.Keyboard) {
+        if (inputDevice == InputDevice.PS4Controller2)
+        {
+            controllerNumber = 2;        
+            System.Array values = System.Enum.GetValues(typeof(KeyCode));
+            foreach (KeyCode code in values)
+            {
+                if (Input.GetKeyDown(code)) { print(System.Enum.GetName(typeof(KeyCode), code)); }
+            }
+
+            selectedInput = "PS4Controller";
+            float controllerSpeed = (Input.GetAxis("Horizontal"));
+            vel.x = controllerSpeed * 10;
+
+            if (Input.GetKeyDown(L1P2))
+            {
+                Debug.Log("L1P2 Pressed!");
+                audioOutput("Left", controllerNumber);
+            }
+            else if (Input.GetKeyDown(L2P2))
+            {
+                Debug.Log("L2P2 Pressed!");
+                hapticOutput("Left", controllerNumber);
+            }
+            else if (Input.GetKeyDown(R1P2))
+            {
+                Debug.Log("R1P2 Pressed!");
+                audioOutput("Right", controllerNumber);
+            }
+            else if (Input.GetKeyDown(R2P2))
+            {
+                Debug.Log("R2P2 Pressed!");
+                hapticOutput("Right", controllerNumber);
+            }
+
+        }
+
+        else if (inputDevice == InputDevice.Keyboard) {
            selectedInput = "Keyboard";
 			if (Input.GetKey (moveRight)) {
 				vel.x = speed;
@@ -134,6 +169,7 @@ public class GameEngine : MonoBehaviour
 
 		transform.position = pos;
 	}
+
 	void generateBricks(int bricks){
 		float startX = (width/2)+ 0.3f;
 		float startY = 3+0.3f;
@@ -160,37 +196,90 @@ public class GameEngine : MonoBehaviour
 
 		}
 	}
-	void hapticOutput(string Side){
+	void hapticOutput(string Side, int number){
 		if(Side == "Left"){
-			Debug.Log ("I got the left side!, haptic");
-            if (sp.IsOpen)
+            if(number == 1)
             {
-                sp.Write("1");
+                Debug.Log("I got the left side!, haptic");
+                if (sp.IsOpen)
+                {
+                    sp.Write("1");
+                }
             }
+            else if (number == 2)
+            {
+                Debug.Log("I got the left side!, haptic");
+                if (sp.IsOpen)
+                {
+                    sp.Write("5");
+                }
+            }
+
 
         }
 		else if(Side == "Right"){
-			Debug.Log ("I got the right side!, haptic");            
-            if (sp.IsOpen)
+            if(number == 1)
             {
-                sp.Write("2");
+                Debug.Log("I got the right side!, haptic");
+                if (sp.IsOpen)
+                {
+                    sp.Write("2");
+                }
+
             }
+            else if (number == 2)
+            {
+                Debug.Log("I got the right side!, haptic");
+                if (sp.IsOpen)
+                {
+                    sp.Write("6");
+                }
+
+            }
+			
         }
 	}
-	void audioOutput(string Side){
+	void audioOutput(string Side, int number){
 		if(Side == "Left"){
-			Debug.Log ("I got the left side!, audio");
-            if (sp.IsOpen)
+            if(number == 1)
             {
-                sp.Write("3");
+                Debug.Log("I got the left side!, audio");
+                if (sp.IsOpen)
+                {
+                    sp.Write("3");
+                }
             }
+            if (number == 2)
+            {
+                Debug.Log("I got the left side!, audio");
+                if (sp.IsOpen)
+                {
+                    sp.Write("7");
+                }
+
+            }
+           
         }
 		else if(Side == "Right"){
-			Debug.Log ("I got the right side!, audio");
-            if (sp.IsOpen)
+            if (number == 1)
             {
-                sp.Write("4");
+                Debug.Log("I got the right side!, audio");
+                if (sp.IsOpen)
+                {
+                    sp.Write("4");
+                }
+
             }
+            if (number == 2)
+            {
+                Debug.Log("I got the right side!, audio");
+                if (sp.IsOpen)
+                {
+                    sp.Write("8");
+                }
+
+            }
+            
         }
 	}
 
