@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 643322067}
   - component: {fileID: 643322066}
   - component: {fileID: 643322065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ball02
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 1648085870}
   - component: {fileID: 1648085869}
   - component: {fileID: 1648085873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ball01
   m_TagString: Ball
   m_Icon: {fileID: 0}

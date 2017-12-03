@@ -14,13 +14,14 @@ public class BallController : MonoBehaviour
 	public int bricks = 44;
 	public int points = 0;
 	public int dead = 0;
+	public List<SpriteRenderer> list;
 
 
 	// Use this for initialization
 	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
-		Invoke("StartBall", 2);
+		Invoke("AddForceToBall", 2);
 	}
 
 	// Update is called once per frame
@@ -29,7 +30,7 @@ public class BallController : MonoBehaviour
 		
 	}
 
-	void StartBall()
+	void AddForceToBall()
 	{
 		float rand = Random.Range(0, 2);
 		if (rand < 1)
@@ -59,7 +60,7 @@ public class BallController : MonoBehaviour
 	void RestartGame()
 	{
 		ResetBall();
-		Invoke("StartBall", 1);
+		Invoke("AddForceToBall", 1);
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
@@ -78,6 +79,14 @@ public class BallController : MonoBehaviour
 				System.IO.File.WriteAllText(path +
 					System.DateTime.Now.ToString("dd-MM-yy_hh-mm-ss")+".txt", "Seconds: " + time2 +"\nPoints: "+
 					points.ToString()+"\nDead: "+dead+"\nInput device: "+GameEngine.selectedInput+"\nOutput method: "+GameEngine.selectedOutput+"\nOutput effect used: "+GameEngine.outputEffectUsed);
+					GameEngine[] gameEngines = GameObject.FindObjectsOfType<GameEngine>();
+					BallController[] balls = GameObject.FindObjectsOfType<BallController>();
+					gameEngines[0].GetComponent<SpriteRenderer>().enabled = false;
+					gameEngines[1].GetComponent<SpriteRenderer>().enabled = false;
+					balls[0].GetComponent<SpriteRenderer>().enabled = false;
+					balls[1].GetComponent<SpriteRenderer>().enabled = false;
+
+
 			}
 		}
 		else if (col.gameObject.name == "BottomWall")
