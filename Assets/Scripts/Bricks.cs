@@ -17,11 +17,12 @@ public class Bricks : MonoBehaviour
 	{
 
 	}
-	void OnCollisionEnter2D(Collision2D col)
+	void OnCollisionExit2D(Collision2D col)
 	{
-		bricks--;
+        
+        bricks--;        
 		BallController.points++;
-		Debug.Log(bricks);
-		Destroy(this);	
-	}
+        Destroy(gameObject);
+    }
+
 }

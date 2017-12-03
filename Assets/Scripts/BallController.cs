@@ -11,7 +11,6 @@ public class BallController : MonoBehaviour
 	}
 	private Rigidbody2D rb2d;
 	private Vector2 vel;
-	public int bricks = 44;
 	public static int points = 0;
 	public int dead = 0;
 	public List<SpriteRenderer> list;
@@ -71,7 +70,6 @@ public class BallController : MonoBehaviour
         if (col.gameObject.name == "green_brick(Clone)" || col.gameObject.name == "blue_brick(Clone)"
 			|| col.gameObject.name == "red_brick(Clone)" || col.gameObject.name == "yellow_brick(Clone)")
 		{
-			points++;
             //Save points to points file
 			if(Bricks.bricks == 0){
 				int time2 = GameObject.Find ("Player01").GetComponent<GameEngine> ().time;

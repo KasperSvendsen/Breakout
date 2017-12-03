@@ -1,0 +1,6 @@
+Seconds: 39
+Points: 90
+Dead: 6
+Input device: PS4Controller
+Output method: 
+Output effect used: 0

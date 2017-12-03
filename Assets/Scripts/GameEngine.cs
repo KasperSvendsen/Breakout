@@ -51,7 +51,9 @@ public class GameEngine : MonoBehaviour
 		width = leftWallX * 2;
 		height =  topWallY * 2;
 		rb2d = GetComponent<Rigidbody2D>();
-		generateBricks (1);
+        if (this.name == "Player01") {
+            generateBricks();
+        }
         switch (outputDevice)
         {
             case OutputDevice.None:
@@ -191,7 +193,7 @@ public class GameEngine : MonoBehaviour
 		transform.position = pos;
 	}
 
-	void generateBricks(int bricks){
+	void generateBricks(){
 		float startX = (width/2)+ 0.3f;
 		float startY = 3+0.3f;
 		for(int x = 0; x < 11; x++){
@@ -212,9 +214,7 @@ public class GameEngine : MonoBehaviour
 		}
 		startX = (width/2)+ 0.3f;
 		for(int x = 0; x < 11; x++){
-			var ny = Instantiate(yellow_brick, new Vector3(startX, startY, 0), Quaternion.Euler(0,0,0)).gameObject;
-			ny.AddComponent<Bricks>();
-			//Instantiate (yellow_brick, new Vector3(startX,1.5f,0), Quaternion.Euler(0,0,0));
+			Instantiate (yellow_brick, new Vector3(startX,1.5f,0), Quaternion.Euler(0,0,0));
 			startX += 1.14f;
 
 		}
@@ -269,7 +269,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the left side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("3");
+                    sp.Write("5");
                 }
             }
             if (number == 2)
@@ -277,7 +277,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the left side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("7");
+                    sp.Write("6");
                 }
 
             }
@@ -289,7 +289,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the right side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("4");
+                    sp.Write("5");
                 }
 
             }
@@ -298,7 +298,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the right side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("8");
+                    sp.Write("6");
                 }
 
             }

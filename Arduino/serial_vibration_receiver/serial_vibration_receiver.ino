@@ -1,3 +1,5 @@
+#include "pitches.h"
+
 int motorPin1Right = 3;
 int motorPin1Left = 6;
 int motorPin2Left = 10;
@@ -7,6 +9,16 @@ int motorPin2Right = 11;
 int first = 255;
 int second = 140;
 int still = 0;
+
+// notes in the melody:
+int melody[] = {
+  NOTE_E4, NOTE_G4, NOTE_C5
+};
+
+// note durations: 4 = quarter note, 8 = eighth note, etc.:
+int noteDurations[] = {
+  4, 4, 8,
+};
 
 void setup() {
   Serial.begin(9600);
@@ -75,5 +87,29 @@ void loop()
       delay(300);
       digitalWrite(motorPin2Right, 0);
       break;     
+  
+  case 53:
+    playSound(5);
+    break;
+
+  case 54:
+    playSound(9);
+    break;  
+    
   }
+}
+
+void playSound(int pin) {
+
+  tone(pin, NOTE_E4, 300);
+  delay(50);
+  noTone(pin);
+
+  tone(pin, NOTE_G4, 300);
+  delay(50);
+  noTone(pin);
+
+  tone(pin, NOTE_C5, 300);
+  delay(100);
+  noTone(pin);
 }
