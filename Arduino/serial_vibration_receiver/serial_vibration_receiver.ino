@@ -1,5 +1,7 @@
 int motorPin1Right = 3;
 int motorPin1Left = 6;
+int motorPin2Left = 10;
+int motorPin2Right = 11;
 
 //edit this variable to change the intensity
 int first = 255;
@@ -10,6 +12,8 @@ void setup() {
   Serial.begin(9600);
   pinMode(motorPin1Right, OUTPUT);
   pinMode(motorPin1Left, OUTPUT);
+  pinMode(motorPin2Right, OUTPUT);
+  pinMode(motorPin2Left, OUTPUT);
 }
 
 void loop()
@@ -52,14 +56,24 @@ void loop()
 
     case 51:
       //Player 2 Left Vibration
-      digitalWrite(8, HIGH);
+      digitalWrite(motorPin2Left, first);
       delay(100);
-      break;  
+      digitalWrite(motorPin2Left, 0);
+      delay(50);
+      digitalWrite(motorPin2Left, second);
+      delay(300);
+      digitalWrite(motorPin2Left, 0);
+      break;
     
     case 52:
       //Player 2 Right Vibration
-      digitalWrite(8, LOW);
+      digitalWrite(motorPin2Right, first);
       delay(100);
-      break;      
+      digitalWrite(motorPin2Right, 0);
+      delay(50);
+      digitalWrite(motorPin2Right, second);
+      delay(300);
+      digitalWrite(motorPin2Right, 0);
+      break;  
   }
 }
