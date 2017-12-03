@@ -88,7 +88,7 @@ public class GameEngine : MonoBehaviour
             }
             
             selectedInput = "PS4Controller";
-			float controllerSpeed = (Input.GetAxis("Horizontal"));
+			float controllerSpeed = (Input.GetAxis("hp1"));
 			vel.x = controllerSpeed*10;            
             
 			if(Input.GetKeyDown(L1P1)){
@@ -120,7 +120,7 @@ public class GameEngine : MonoBehaviour
             }
 
             selectedInput = "PS4Controller";
-            float controllerSpeed = (Input.GetAxis("Horizontal"));
+            float controllerSpeed = (Input.GetAxis("hp2"));
             vel.x = controllerSpeed * 10;
 
             if (Input.GetKeyDown(L1P2))
