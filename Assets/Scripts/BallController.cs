@@ -12,7 +12,7 @@ public class BallController : MonoBehaviour
 	private Rigidbody2D rb2d;
 	private Vector2 vel;
 	public int bricks = 44;
-	public int points = 0;
+	public static int points = 0;
 	public int dead = 0;
 	public List<SpriteRenderer> list;
 
@@ -72,11 +72,8 @@ public class BallController : MonoBehaviour
 			|| col.gameObject.name == "red_brick(Clone)" || col.gameObject.name == "yellow_brick(Clone)")
 		{
 			points++;
-			if(this.name == "Ball01"){
-				DestroyBrick(col.gameObject);
-			}
             //Save points to points file
-			if(bricks == 0){
+			if(Bricks.bricks == 0){
 				int time2 = GameObject.Find ("Player01").GetComponent<GameEngine> ().time;
 				System.IO.File.WriteAllText(path +
 					System.DateTime.Now.ToString("dd-MM-yy_hh-mm-ss")+".txt", "Seconds: " + time2 +"\nPoints: "+
@@ -87,8 +84,6 @@ public class BallController : MonoBehaviour
 					gameEngines[1].GetComponent<SpriteRenderer>().enabled = false;
 					balls[0].GetComponent<SpriteRenderer>().enabled = false;
 					balls[1].GetComponent<SpriteRenderer>().enabled = false;
-
-
 			}
 		}
 		else if (col.gameObject.name == "BottomWall")
@@ -121,10 +116,5 @@ public class BallController : MonoBehaviour
 			rb2d.velocity = dir*speed;
 		}
 
-	}
-	void DestroyBrick(GameObject g)
-	{
-		bricks--;
-		Destroy(g);
 	}
 }
