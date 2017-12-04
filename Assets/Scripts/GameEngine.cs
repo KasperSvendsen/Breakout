@@ -358,7 +358,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the left side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("5");
+                    sp.Write("7");
                 }
             }
             if (number == 2)
@@ -366,7 +366,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the left side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("6");
+                    sp.Write("5");
                 }
 
             }
@@ -378,7 +378,7 @@ public class GameEngine : MonoBehaviour
                 Debug.Log("I got the right side!, audio");
                 if (sp.IsOpen)
                 {
-                    sp.Write("5");
+                    sp.Write("8");
                 }
 
             }

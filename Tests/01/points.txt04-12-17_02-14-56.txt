@@ -1,0 +1,8 @@
+Seconds: 77
+Points: 44
+Dead: 4
+Input device: PS4Controller
+Output method: Combination
+Output effect used: 185
+Player 1 paddle counter: 33
+Player 2 paddle counter: 31

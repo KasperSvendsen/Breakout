@@ -1,8 +1,8 @@
-Seconds: 80
+Seconds: 69
 Points: 44
-Dead: 3
+Dead: 4
 Input device: PS4Controller
 Output method: Vibrator
-Output effect used: 14
+Output effect used: 123
 Player 1 paddle counter: 32
-Player 2 paddle counter: 36
+Player 2 paddle counter: 30
