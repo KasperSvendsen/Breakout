@@ -26,8 +26,20 @@ public class BallController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
-	}
+        //Route to root of game folder
+        string path = System.IO.Path.GetDirectoryName(Application.dataPath) + "/points.txt";
+
+        //Save points to points file
+        if (Bricks.bricks == 0)
+        {
+            int time2 = GameObject.Find("Player01").GetComponent<GameEngine>().time;
+            System.IO.File.WriteAllText(path +
+                System.DateTime.Now.ToString("dd-MM-yy_hh-mm-ss") + ".txt", "Seconds: " + time2 + "\nPoints: " +
+                points.ToString() + "\nDead: " + dead + "\nInput device: " + GameEngine.selectedInput + "\nOutput method: " + GameEngine.selectedOutput + "\nOutput effect used: " + GameEngine.outputEffectUsed + "\nPlayer 1 paddle counter: " + GameEngine.paddleCounter1 + "\nPlayer 2 paddle counter: " + GameEngine.paddleCounter2);
+            UnityEditor.EditorApplication.isPlaying = false;
+            //Application.Quit(); // IF GAME IS BUILT
+        }
+    }
 
 	void AddForceToBall()
 	{
@@ -64,31 +76,18 @@ public class BallController : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-        //Route to root of game folder
-        string path = System.IO.Path.GetDirectoryName(Application.dataPath) + "/points.txt";        
 
         if (col.gameObject.name == "green_brick(Clone)" || col.gameObject.name == "blue_brick(Clone)"
 			|| col.gameObject.name == "red_brick(Clone)" || col.gameObject.name == "yellow_brick(Clone)")
 		{
-            //Save points to points file
-			if(Bricks.bricks == 0){
-				int time2 = GameObject.Find ("Player01").GetComponent<GameEngine> ().time;
-				System.IO.File.WriteAllText(path +
-					System.DateTime.Now.ToString("dd-MM-yy_hh-mm-ss")+".txt", "Seconds: " + time2 +"\nPoints: "+
-					points.ToString()+"\nDead: "+dead+"\nInput device: "+GameEngine.selectedInput+"\nOutput method: "+GameEngine.selectedOutput+"\nOutput effect used: "+GameEngine.outputEffectUsed);
-					GameEngine[] gameEngines = GameObject.FindObjectsOfType<GameEngine>();
-					BallController[] balls = GameObject.FindObjectsOfType<BallController>();
-					gameEngines[0].GetComponent<SpriteRenderer>().enabled = false;
-					gameEngines[1].GetComponent<SpriteRenderer>().enabled = false;
-					balls[0].GetComponent<SpriteRenderer>().enabled = false;
-					balls[1].GetComponent<SpriteRenderer>().enabled = false;
-			}
+            
 		}
 		else if (col.gameObject.name == "BottomWall")
 		{
 			dead++;
 			RestartGame ();
 		}
+
 		else if (col.gameObject.name == "Player01") {
 			// Calculate hit Factor
 			float x = hitFactor(transform.position,

@@ -7,6 +7,8 @@ using System.IO.Ports;
 public class GameEngine : MonoBehaviour
 {
     public static SerialPort sp = new SerialPort("COM2", 9600, Parity.None, 8, StopBits.One);
+    public static int paddleCounter1;
+    public static int paddleCounter2;
     public KeyCode moveLeft1 = KeyCode.LeftArrow;
 	public KeyCode moveRight1 = KeyCode.RightArrow;
 	public KeyCode moveLeft2 = KeyCode.A;
@@ -58,6 +60,7 @@ public class GameEngine : MonoBehaviour
         {
             case OutputDevice.None:
                 Debug.Log("No output device selected");
+                selectedOutput = "None";
                 break;
             case OutputDevice.Vibrators:
                 Debug.Log("Vibrators selected");
@@ -91,30 +94,75 @@ public class GameEngine : MonoBehaviour
             }
             
             selectedInput = "PS4Controller";
-			float controllerSpeed = (Input.GetAxis("hp1"));
+		    float controllerSpeed = (Input.GetAxis("hp1"));
 			vel.x = controllerSpeed*10;            
             
-			if(Input.GetKeyDown(L1P1)){
-				Debug.Log("L1P1 Pressed!");
-				audioOutput ("Left", controllerNumber);
-				outputEffectUsed++;
-			}
-			else if(Input.GetKeyDown(L2P1)){
-				Debug.Log("L2P1 Pressed!");
-				hapticOutput ("Left", controllerNumber);
-				outputEffectUsed++;
-			}
-			else if(Input.GetKeyDown(R1P1)){
-				Debug.Log("R1P1 Pressed!");
-				audioOutput ("Right", controllerNumber);
-				outputEffectUsed++;
-			}
-			else if(Input.GetKeyDown(R2P1)){
-				Debug.Log("R2P1 Pressed!");
-				hapticOutput ("Right", controllerNumber);
-				outputEffectUsed++;
-			}
+            if(selectedOutput == "Vibrator")
+            {
+                if (Input.GetKeyDown(L2P1))
+                {
+                    Debug.Log("L2P1 Pressed!");
+                    hapticOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
 
+                else if (Input.GetKeyDown(R2P1))
+                {
+                    Debug.Log("R2P1 Pressed!");
+                    hapticOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }            
+            }
+
+            else if (selectedOutput == "Sound")
+            {
+                if (Input.GetKeyDown(L1P1))
+                {
+                    Debug.Log("L1P1 Pressed!");
+                    audioOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+
+                else if (Input.GetKeyDown(R1P1))
+                {
+                    Debug.Log("R1P1 Pressed!");
+                    audioOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
+
+            }
+
+            else if(selectedOutput == "Combination")
+            {
+                if (Input.GetKeyDown(L1P1))
+                {
+                    Debug.Log("L1P1 Pressed!");
+                    hapticOutput("Left", controllerNumber);
+                    audioOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+                else if (Input.GetKeyDown(L2P1))
+                {
+                    Debug.Log("L2P1 Pressed!");
+                    hapticOutput("Left", controllerNumber);                    
+                    audioOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+                else if (Input.GetKeyDown(R1P1))
+                {
+                    Debug.Log("R1P1 Pressed!");
+                    audioOutput("Right", controllerNumber);
+                    hapticOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
+                else if (Input.GetKeyDown(R2P1))
+                {
+                    Debug.Log("R2P1 Pressed!");
+                    hapticOutput("Right", controllerNumber);
+                    audioOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
+            }		
 		}
 
         if (inputDevice == InputDevice.PS4Controller2)
@@ -130,31 +178,71 @@ public class GameEngine : MonoBehaviour
             float controllerSpeed = (Input.GetAxis("hp2"));
             vel.x = controllerSpeed * 10;
 
-            if (Input.GetKeyDown(L1P2))
+            if(selectedOutput == "Vibrator")
             {
-                Debug.Log("L1P2 Pressed!");
-                audioOutput("Left", controllerNumber);
-				outputEffectUsed++;
-            }
-            else if (Input.GetKeyDown(L2P2))
-            {
-                Debug.Log("L2P2 Pressed!");
-                hapticOutput("Left", controllerNumber);
-				outputEffectUsed++;
-            }
-            else if (Input.GetKeyDown(R1P2))
-            {
-                Debug.Log("R1P2 Pressed!");
-                audioOutput("Right", controllerNumber);
-				outputEffectUsed++;
-            }
-            else if (Input.GetKeyDown(R2P2))
-            {
-                Debug.Log("R2P2 Pressed!");
-                hapticOutput("Right", controllerNumber);
-				outputEffectUsed++;
+                if (Input.GetKeyDown(L2P2))
+                {
+                    Debug.Log("L2P2 Pressed!");
+                    hapticOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+
+                else if (Input.GetKeyDown(R2P2))
+                {
+                    Debug.Log("R2P2 Pressed!");
+                    hapticOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
             }
 
+            if(selectedOutput == "Sound")
+            {
+                if (Input.GetKeyDown(L1P2))
+                {
+                    Debug.Log("L1P2 Pressed!");
+                    audioOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+
+                else if (Input.GetKeyDown(R1P2))
+                {
+                    Debug.Log("R1P2 Pressed!");
+                    audioOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
+            }
+
+            if(selectedOutput == "Combination")
+            {
+                if (Input.GetKeyDown(L1P2))
+                {
+                    Debug.Log("L1P1 Pressed!");
+                    hapticOutput("Left", controllerNumber);
+                    audioOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+                else if (Input.GetKeyDown(L2P2))
+                {
+                    Debug.Log("L2P1 Pressed!");
+                    hapticOutput("Left", controllerNumber);
+                    audioOutput("Left", controllerNumber);
+                    outputEffectUsed++;
+                }
+                else if (Input.GetKeyDown(R1P2))
+                {
+                    Debug.Log("R1P1 Pressed!");
+                    audioOutput("Right", controllerNumber);
+                    hapticOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
+                else if (Input.GetKeyDown(R2P2))
+                {
+                    Debug.Log("R2P1 Pressed!");
+                    hapticOutput("Right", controllerNumber);
+                    audioOutput("Right", controllerNumber);
+                    outputEffectUsed++;
+                }
+            }                    
         }
 
         else if (inputDevice == InputDevice.Keyboard1) {
@@ -177,6 +265,7 @@ public class GameEngine : MonoBehaviour
 				vel.x = 0;
 			}
 		}
+
 		rb2d.velocity = vel;
 
 		var pos = transform.position;
@@ -337,6 +426,24 @@ public class GameEngine : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Ball01" || collision.gameObject.name == "Ball02")
+        {
+            if(this.gameObject.name == "Player01")
+            {
+                paddleCounter1++;
+            }
+
+            else if (this.gameObject.name == "Player02")
+            {
+                paddleCounter2++;
+            }
+        }
+    }
+
 
 
 }
+
+

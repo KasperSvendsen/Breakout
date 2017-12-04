@@ -18,9 +18,9 @@ public class Bricks : MonoBehaviour
 
 	}
 	void OnCollisionExit2D(Collision2D col)
-	{
-        
-        bricks--;        
+	{        
+        bricks--;
+        //Debug.Log(bricks);
 		BallController.points++;
         Destroy(gameObject);
     }

@@ -2,8 +2,8 @@
 
 int motorPin1Right = 3;
 int motorPin1Left = 6;
-int motorPin2Left = 10;
-int motorPin2Right = 11;
+int motorPin2Left = 11;
+int motorPin2Right = 10;
 
 //edit this variable to change the intensity
 int first = 255;
@@ -87,15 +87,14 @@ void loop()
       delay(300);
       digitalWrite(motorPin2Right, 0);
       break;     
-  
-  case 53:
-    playSound(5);
-    break;
 
-  case 54:
-    playSound(9);
-    break;  
-    
+    case 53:
+      playSound(9);
+      break;
+
+    case 54:
+      playSound(5 );
+      break;
   }
 }
 
