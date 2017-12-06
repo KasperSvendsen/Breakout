@@ -462,7 +462,7 @@ MonoBehaviour:
   speed: 10
   boundX: 5.5
   inputDevice: 2
-  outputDevice: 0
+  outputDevice: 3
   bricks: 0
   spacing: 1
   green_brick: {fileID: 4325830077114596, guid: 26e37e847cd184116b6bb59b213173a1,
@@ -624,7 +624,7 @@ MonoBehaviour:
   speed: 10
   boundX: 5.5
   inputDevice: 3
-  outputDevice: 0
+  outputDevice: 3
   bricks: 0
   spacing: 1
   green_brick: {fileID: 4325830077114596, guid: 26e37e847cd184116b6bb59b213173a1,

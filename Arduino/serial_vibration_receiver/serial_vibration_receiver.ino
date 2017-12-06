@@ -4,7 +4,7 @@ int motorPin1Right = 3;
 int motorPin1Left = 6;
 int motorPin2Left = 11;
 int motorPin2Right = 10;
-
+8
 //edit this variable to change the intensity
 int first = 255;
 int second = 140;

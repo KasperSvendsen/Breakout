@@ -1,0 +1,8 @@
+Seconds: 86
+Points: 44
+Dead: 3
+Input device: PS4Controller
+Output method: Sound
+Output effect used: 8
+Player 1 paddle counter: 33
+Player 2 paddle counter: 29

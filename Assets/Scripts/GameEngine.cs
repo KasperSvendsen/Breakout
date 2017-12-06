@@ -6,7 +6,7 @@ using System.IO.Ports;
 
 public class GameEngine : MonoBehaviour
 {
-    public static SerialPort sp = new SerialPort("COM2", 9600, Parity.None, 8, StopBits.One);
+    public static SerialPort sp = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
     public static int paddleCounter1;
     public static int paddleCounter2;
     public KeyCode moveLeft1 = KeyCode.LeftArrow;
